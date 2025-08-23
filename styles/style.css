@@ -1,0 +1,50 @@
+/* Use the Inter font family */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Custom styles for the range slider to show progress */
+#seek-slider {
+  /* The initial state of the slider track */
+  background: linear-gradient(
+    to right,
+    #374151 0%,
+    #374151 0%,
+    #d1d5db 0%,
+    #d1d5db 100%
+  );
+}
+
+/* General styling for the range input */
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the default slider appearance */
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Styling for the slider thumb (the draggable circle) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #374151; /* gray-700 */
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #374151; /* gray-700 */
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
