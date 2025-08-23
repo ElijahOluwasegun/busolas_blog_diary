@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busola's Blog Diaries</title>
     
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,55 +13,55 @@
     <!-- Link to your external stylesheet -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body class="bg-white text-gray-800">
+<body>
 
     <!-- Header Section -->
-    <header class="bg-gray-100 py-6 shadow-sm">
-        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800">Busola's Blog Diaries</h1>
+    <header class="header">
+        <h1 class="header-title">Busola's Blog Diaries</h1>
     </header>
 
     <!-- Main Content - Audio Player -->
-    <main class="flex justify-center items-center mt-10 md:mt-20 px-4">
-        <div class="w-full max-w-lg bg-gray-50 p-5 sm:p-6 rounded-xl shadow-lg">
+    <main class="main-content">
+        <div class="player-container">
             
             <!-- Topic Selector with Dropdown -->
-            <div class="relative mb-4">
+            <div class="topic-selector" id="topic-selector">
                 <!-- This is the visible part of the dropdown selector -->
-                <div class="flex justify-between items-center bg-white border border-gray-200 px-4 py-3 rounded-lg cursor-pointer transition hover:border-gray-300" id="topic-selector-header">
-                    <span id="track-title" class="font-semibold text-gray-700">The Unconditional Love of God</span>
-                    <button id="topic-dropdown-btn" class="focus:outline-none">
-                        <svg class="w-6 h-6 bg-black text-white rounded-full p-1 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="topic-selector-header" id="topic-selector-header">
+                    <span id="track-title" class="track-title">The Unconditional Love of God</span>
+                    <button id="topic-dropdown-btn" class="topic-dropdown-button">
+                        <svg class="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                 </div>
                 
                 <!-- Dropdown List (initially hidden) -->
-                <div id="topic-list" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-                    <ul class="py-1">
+                <div id="topic-list" class="topic-list">
+                    <ul>
                         <!-- 
                             IMPORTANT: Replace these placeholder audio URLs with your actual audio files.
                             The data-src attribute holds the path to the audio file.
                             The data-title attribute holds the title to display.
                         -->
-                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-src="audio/audio1.mp3" data-title="The Unconditional Love of God">The Unconditional Love of God</li>
-                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-src="audio/audio2.mp3" data-title="Finding Peace in Chaos">Finding Peace in Chaos</li>
-                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-src="audio/audio3.mp3" data-title="The Power of Forgiveness">The Power of Forgiveness</li>
+                        <li data-src="audio/audio1.mp3" data-title="The Unconditional Love of God">The Unconditional Love of God</li>
+                        <li data-src="audio/audio2.mp3" data-title="Finding Peace in Chaos">Finding Peace in Chaos</li>
+                        <li data-src="audio/audio3.mp3" data-title="The Power of Forgiveness">The Power of Forgiveness</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Audio Controls -->
-            <div class="flex items-center space-x-3 sm:space-x-4">
-                <button id="play-pause-btn" class="p-2 rounded-full hover:bg-gray-200 focus:outline-none transition">
+            <div class="audio-controls">
+                <button id="play-pause-btn" class="control-button">
                     <!-- Play Icon -->
-                    <svg id="play-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                    <svg id="play-icon" class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
                     <!-- Pause Icon (initially hidden) -->
-                    <svg id="pause-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                    <svg id="pause-icon" class="icon hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
                 </button>
-                <span id="current-time" class="text-sm text-gray-600 w-12 text-center">00:00</span>
-                <input type="range" id="seek-slider" value="0" class="flex-grow">
-                <span id="duration" class="text-sm text-gray-600 w-12 text-center">00:00</span>
-                 <a href="#" id="download-btn" download class="p-2 rounded-full hover:bg-gray-200 focus:outline-none transition">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span id="current-time" class="time-display">00:00</span>
+                <input type="range" id="seek-slider" value="0">
+                <span id="duration" class="time-display">00:00</span>
+                 <a href="#" id="download-btn" download class="control-button">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 </a>
             </div>
 

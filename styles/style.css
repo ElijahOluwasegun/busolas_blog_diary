@@ -1,50 +1,218 @@
-/* Use the Inter font family */
+/* --- Basic Setup and Typography --- */
 body {
-  font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #1f2937; /* Corresponds to Tailwind's text-gray-800 */
+    margin: 0;
 }
 
-/* Custom styles for the range slider to show progress */
+/* --- Header --- */
+.header {
+    background-color: #2823B4; /* blue */
+    padding: 1.5rem 0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+}
+
+.header-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff; /* white */
+    margin: 0;
+}
+
+/* --- Main Content & Player Container --- */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem; /* mt-10 */
+    padding: 0 1rem; /* px-4 */
+}
+
+.player-container {
+    width: 100%;
+    max-width: 32rem; /* max-w-lg */
+    background-color: #f9fafb; /* gray-50 */
+    padding: 1.25rem; /* p-5 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+}
+
+/* --- Topic Selector Dropdown --- */
+.topic-selector {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.topic-selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2823B4;
+    border: 1px solid #e5e7eb; /* border-gray-200 */
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    cursor: pointer;
+    transition: border-color 150ms ease-in-out;
+}
+
+.topic-selector-header:hover {
+    border-color: #d1d5db; /* hover:border-gray-300 */
+}
+
+.track-title {
+    font-weight: 600; /* font-semibold */
+    color: #ffffff; /* text-gray-700 */
+}
+
+.topic-dropdown-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.dropdown-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 0.25rem;
+    transition: transform 300ms ease-in-out;
+}
+
+.dropdown-arrow.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.topic-list {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.25rem;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+}
+
+.topic-list.show {
+    display: block;
+}
+
+.topic-list ul {
+    list-style: none;
+    padding: 0.25rem 0;
+    margin: 0;
+}
+
+.topic-list li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.topic-list li:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+/* --- Audio Controls --- */
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* space-x-3 */
+}
+
+.control-button {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    border-radius: 9999px;
+    transition: background-color 150ms ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button:hover {
+    background-color: #e5e7eb; /* hover:bg-gray-200 */
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #4b5563; /* text-gray-600 */
+}
+
+#play-pause-btn .icon {
+    color: #1f2937;
+}
+
+.time-display {
+    font-size: 0.875rem; /* text-sm */
+    color: #4b5563; /* text-gray-600 */
+    width: 3rem; /* w-12 */
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* --- Seek Slider --- */
 #seek-slider {
-  /* The initial state of the slider track */
-  background: linear-gradient(
-    to right,
-    #374151 0%,
-    #374151 0%,
-    #d1d5db 0%,
-    #d1d5db 100%
-  );
+    flex-grow: 1;
+    background: linear-gradient(to right, #374151 0%, #374151 0%, #d1d5db 0%, #d1d5db 100%);
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 9999px;
+    outline: none;
+    cursor: pointer;
 }
 
-/* General styling for the range input */
-input[type="range"] {
-  -webkit-appearance: none; /* Hides the default slider appearance */
-  appearance: none;
-  width: 100%;
-  height: 6px;
-  border-radius: 9999px;
-  outline: none;
-  cursor: pointer;
+#seek-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #2823B4;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
-/* Styling for the slider thumb (the draggable circle) */
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  background: #374151; /* gray-700 */
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+#seek-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #374151;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
-input[type="range"]::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  background: #374151; /* gray-700 */
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid white;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+/* --- Utility Classes --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 2.25rem; /* md:text-4xl */
+    }
+    .main-content {
+        margin-top: 5rem; /* md:mt-20 */
+    }
+    .player-container {
+        padding: 1.5rem; /* sm:p-6 */
+    }
+    .audio-controls {
+        gap: 1rem; /* sm:space-x-4 */
+    }
 }
