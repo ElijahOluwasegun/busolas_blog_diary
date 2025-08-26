@@ -1,5 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* --- Basic Setup and Typography --- */
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     color: #1f2937; /* Corresponds to Tailwind's text-gray-800 */
@@ -200,6 +210,17 @@ body {
 .hidden {
     display: none !important;
 }
+
+.footer {
+    padding: 1.5rem 0rem;
+    background-color: #2823B4;
+    color: white;
+}
+
+.footer p {
+    text-align: center;
+}
+
 
 /* --- Responsive Design --- */
 @media (min-width: 768px) {
