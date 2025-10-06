@@ -18,8 +18,11 @@ body {
 
 /* --- Header --- */
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #2823B4; /* blue */
-    padding: 1.5rem 0;
+    padding: 1.5rem 2em;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
 }
 
@@ -28,8 +31,16 @@ body {
     font-weight: 700;
     text-align: center;
     color: #ffffff; /* white */
-    margin: 0;
 }
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color: #ffffff;
+}
+
 
 /* --- Main Content & Player Container --- */
 .main-content {

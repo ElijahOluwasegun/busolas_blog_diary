@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Basic Setup and Typography --- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #1f2937; /* Corresponds to Tailwind's text-gray-800 */
+    margin: 0;
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2823B4; /* blue */
+    padding: 1.5rem 0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+}
+
+.header-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff; /* white */
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color: #ffffff;
+}
+
+
+/* --- Main Content & Player Container --- */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    margin-top: 1rem; 
+    padding: 0 1rem; /* px-4 */
+}
+
+.about-subtitle {
+    margin: 1.5rem 0;
+    text-decoration: underline;
+}
+
+.bible-reference {
+    font-weight: bold;
+}
+
+.display-box-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    justify-items: center;
+}
+
+.display-box {
+    margin-bottom: 2rem;
+    width: 40%;
+    background-color: #726dff;
+}
+
+.display-box-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #2823B4;
+    border-bottom: 1px solid black;
+}
+
+.display-box-body {
+    padding: 1.5rem 1rem;
+    height: 100%;
+    text-align: center;
+    color: white;
+}
+
+.footer {
+    padding: 1.5rem 0rem;
+    background-color: #2823B4;
+    color: white;
+}
+
+.footer p {
+    text-align: center;
+}
+
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 2.25rem; /* md:text-4xl */
+    }
+    .main-content {
+        margin-top: 5rem; /* md:mt-20 */
+    }
+    .player-container {
+        padding: 1.5rem; /* sm:p-6 */
+    }
+    .audio-controls {
+        gap: 1rem; /* sm:space-x-4 */
+    }
+}
